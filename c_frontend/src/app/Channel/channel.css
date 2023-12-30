@@ -1,0 +1,47 @@
+.btn-create-channel,
+.btn-search-channel,
+.btn-refresh-channel,
+.btn-update-channel {
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+  .btn-create-channel:hover,
+  .btn-search-channel:hover,
+  .btn-refresh-channel:hover,
+  .btn-update-channel:hover{
+    background-color: #2980b9;
+  }
+
+.input-channel-name,
+.input-channel-type,
+.input-channel-id {
+    display: block;
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    word-spacing: 5px;
+}
+
+.btn-delete-channel {
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #e74c3c; 
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+  }
+  
+  .btn-delete-channel:hover {
+    background-color: #c0392b; 
+  }
+  

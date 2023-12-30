@@ -1,0 +1,94 @@
+.server-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; 
+}
+
+div {
+    margin: 20px; 
+  }
+
+
+  .btn-createserver{
+    border-radius: 5px;
+  }
+
+  
+  .btn-invitemember {
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #73b6ec;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-deleteserver {
+    
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #e74c3c; 
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+  }
+  
+  .btn-deleteserver:hover {
+    background-color: #c0392b; 
+  }
+  
+
+  h1.create-server {
+    font-size: 24px;
+    color: #333;
+  }
+
+  li {
+    margin-bottom: 10px; 
+  }
+  
+
+  .label-servername,
+  .label-servercategory {
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+
+  .input-servername,
+  .input-servercategory {
+    width: 100%;
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+
+  .btn-submit {
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+
+  .btn-createserver {
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+  .btn-createserver:hover {
+    background-color: #2980b9;
+  }
+  

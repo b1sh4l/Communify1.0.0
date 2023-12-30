@@ -1,0 +1,142 @@
+.group-chat-container {
+  display: flex;
+}
+
+.group-list {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.group-list h2 {
+  margin-bottom: 10px;
+}
+
+.group-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+.group-list li {
+  cursor: pointer;
+  width: 219px;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  background-color: #3498db;
+  color: #fff;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.group-list li:hover {
+  background-color: #2980b9;
+}
+
+.chat-window {
+  flex: 3;
+}
+
+.chat-window h2 {
+  margin-bottom: 10px;
+}
+
+.chat-messages {
+  height: 300px;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #ecf0f1;
+}
+
+.chat-message {
+  margin-bottom: 8px;
+}
+
+.message-sender {
+  font-weight: bold;
+}
+
+.message-content {
+  margin-left: 8px;
+}
+
+.message-timestamp {
+  font-size: 12px;
+  color: #95a5a6;
+}
+
+.message-input {
+  width: calc(100% - 20px);
+  padding: 8px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.send-button {
+  padding: 8px;
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #27ae60;
+}
+
+.create-update-group-container {
+  margin-top: 20px;
+}
+
+.create-update-group-container input {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+}
+
+.create-update-group-button {
+  padding: 8px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.create-update-group-button:hover {
+  background-color: #2980b9;
+}
+
+.delete-group-button {
+  padding: 8px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-group-button:hover {
+  background-color: #c0392b;
+}
+
+/* Scrollbar Styles */
+
+.chat-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: #3498db;
+  border-radius: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background-color: #ecf0f1;
+}

@@ -1,0 +1,187 @@
+.container {
+  display: flex;
+}
+
+.transparent-background {
+  visibility: hidden;
+  box-shadow: none;
+}
+
+.white-background {
+  background-color: white;
+}
+
+.result-container {
+  background-color: #f5f5f5;
+  position: fixed;
+  width: 800px;
+  height: 900px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.result-container-header {
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.result-content {
+  padding: 20px;
+  flex: 1;
+}
+
+.result-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.result-container::-webkit-scrollbar-thumb {
+  background-color: #3498db;
+  border-radius: 4px;
+}
+
+.result-container::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+.result-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.messages-column,
+.userProfile-column,
+.server-column,
+.groupchat-column {
+  flex: initial;
+  margin-right: 0px;
+}
+
+.sidebar {
+  user-select: none;
+  width: 200px;
+  height: 100vh;
+}
+
+.servers-container.withServerContainer {
+  background-color: #fff;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  top: 56px;
+  left: 38px;
+  position: fixed;
+}
+
+.sidebar-logo {
+  width: 73px;
+  height: 73px;
+  flex-shrink: 0;
+}
+
+.communify-text {
+  color: #333;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  margin-left: 10px;
+}
+
+.sidebar-search {
+  border-radius: 10px;
+  width: 250px;
+  height: 48px;
+  margin-top: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  top: 179px;
+  left: 38px;
+  position: fixed;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  margin-top: 20px;
+  top: 300px;
+  left: 38px;
+  position: fixed;
+}
+
+.sidebar-menu div {
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.sidebar-menu label,
+.sidebar-menu Image {
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  flex: 1;
+}
+
+.sidebar-menu label:hover {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  color: #555;
+}
+
+.sidebar-menu label:active {
+  background-color: #ddd;
+  color: #555;
+}
+
+.sidebar-menu label.active {
+  background-color: #ddd;
+  border-radius: 10px;
+  color: #555;
+}
+
+.servers-container.withServerContainer {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.signout {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #e74c3c;
+  border: 2px solid #c0392b;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  margin-top: auto;
+  top: 966px;
+  left: 100px;
+  position: fixed;
+}
+
+.signout:hover {
+  background-color: #c0392b;
+  color: #fff;
+}

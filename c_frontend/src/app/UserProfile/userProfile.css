@@ -1,0 +1,148 @@
+.admin-dashboard {
+    padding: 20px;
+    user-select: none;
+    border-radius: 15px;
+    width: 998px;
+    height: 60px;
+    top: 100px;
+    left: 820px;
+    border-radius: 15px;
+}
+
+.action-message {
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    color: #3c763d;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.user-info {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.user-actions {
+    margin-top: 10px;
+}
+
+
+.fetch-by-id-heading {
+    cursor: pointer;
+    margin-top: 20px;
+    user-select: none;
+    border: 5px solid #ddd;
+    border-spacing: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 196px;
+}
+
+.create-user-heading:hover,
+.fetch-by-email-heading:hover,
+.fetch-by-id-heading:hover {
+    background-color: #f0f0f0;
+    width: 196px;
+    padding: 10px;
+    border-radius: 10px;
+    color: #555;
+}
+
+
+
+
+.create-user-heading {
+    cursor: pointer;
+    margin-top: 20px;
+    user-select: none;
+    border: 5px solid #ddd;
+    border-spacing: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 196px;
+}
+
+
+.fetch-by-email-heading {
+    cursor: pointer;
+    margin-top: 20px;
+    user-select: none;
+    border: 5px solid #ddd;
+    border-spacing: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 196px;
+}
+
+
+.fetch-by-email-btn,
+.create-user-btn,
+.fetch-by-id-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+
+}
+
+.update-user-btn,
+.assign-role-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.delete-user-btn,
+.remove-profile-picture-btn,
+.ban-user-btn {
+    background-color: #db3434;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.users-heading {
+    margin-top: 25px;
+    padding: 10px;
+}
+
+
+.fetch-by-user-id-input,
+.fetch-by-email-input,
+.create-user-form input,
+.update-user-form input {
+    display: flex;
+    width: 196px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+  
+.createUser-icon,
+.fetch-by-id-icon,
+.fetch-by-email-icon {
+  margin: 0;
+  transition: background-color 0.3s ease; 
+  width: 50px;
+  height: 50px;
+}
+
+.createUser-icon:hover,
+.fetch-by-id-icon:hover,
+.fetch-by-email-icon:hover {
+    border-radius: 5px;
+  background-color: #ddd; 
+}
