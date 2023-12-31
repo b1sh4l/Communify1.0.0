@@ -30,7 +30,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ channelName, onClose }) => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      e.preventDefault(); // Prevents the default behavior of Enter key in a textarea (new line)
+      e.preventDefault(); 
       handleSendMessage();
     }
   }

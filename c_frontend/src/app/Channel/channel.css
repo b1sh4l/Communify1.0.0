@@ -94,7 +94,13 @@
   align-items: center;
 }
 
+.title:hover,
 .channel-row:hover {
   background-color: #ecf0f1;
   cursor: pointer;
 }
+
+.title {
+  user-select: none;
+}
+

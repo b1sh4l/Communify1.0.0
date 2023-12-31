@@ -11,6 +11,12 @@ const Channel: React.FC = () => {
   const [error, setError] = useState<string>("");
   const [selectedChannel, setSelectedChannel] = useState<string | null>(null);
 
+  const [isCreateChannelOpen, setCreateChannelOpen] = useState<boolean>(false);
+  const [isSearchChannelOpen, setSearchChannelOpen] = useState<boolean>(false);
+  const [isChannelListOpen, setChannelListOpen] = useState<boolean>(false);
+  const [isUpdateChannelOpen, setUpdateChannelOpen] = useState<boolean>(false);
+  const [isDeleteChannelOpen, setDeleteChannelOpen] = useState<boolean>(false);
+
   const handleError = (errorMessage: string) => {
     setError(errorMessage);
     setTimeout(() => setError(""), 3000);
@@ -18,10 +24,10 @@ const Channel: React.FC = () => {
 
   const handleCreateChannel = async () => {
     try {
-        if (!channelName || !channelType) {
-            handleError("Both channel name and type are required.");
-            return;
-          }
+      if (!channelName || !channelType) {
+        handleError("Both channel name and type are required.");
+        return;
+      }
       const jwtToken =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1ZGFyc2hhbkBnbWFpbC5jb20iLCJzdWIiOjIyLCJpYXQiOjE3MDM2Nzk2NjQsImV4cCI6MTcwNDI4NDQ2NH0.Ao3d6Z-peKJc8Qhr0UoQrF02AuTqa8ci--suodBWkOI";
 
@@ -141,74 +147,96 @@ const Channel: React.FC = () => {
   return (
     <div>
       <div>
-        <h2>Create Channel</h2>
-        <input
-          className="input-channel-name"
-          type="text"
-          placeholder="Channel Name"
-          onChange={(e) => setChannelName(e.target.value)}
-        />
-        <input
-          className="input-channel-type"
-          type="text"
-          placeholder="Channel Type"
-          onChange={(e) => setChannelType(e.target.value)}
-        />
-        <button className="btn-create-channel" onClick={handleCreateChannel}>
-          Create
-        </button>
+        <h2 className="title" onClick={() => setCreateChannelOpen(!isCreateChannelOpen)}>
+          Create Channel
+        </h2>
+        {isCreateChannelOpen && (
+          <div>
+            <input
+              className="input-channel-name"
+              type="text"
+              placeholder="Channel Name"
+              onChange={(e) => setChannelName(e.target.value)}
+            />
+            <input
+              className="input-channel-type"
+              type="text"
+              placeholder="Channel Type"
+              onChange={(e) => setChannelType(e.target.value)}
+            />
+            <button
+              className="btn-create-channel"
+              onClick={handleCreateChannel}
+            >
+              Create
+            </button>
+          </div>
+        )}
       </div>
 
       <div>
-        <h2>Search Channel by ID</h2>
-        <input
-          className="input-channel-id"
-          type="text"
-          placeholder="Channel ID"
-          onChange={(e) => setChannelId(e.target.value)}
-        />
-        <button className="btn-search-channel" onClick={handleFetchChannelById}>
-          Search
-        </button>
+        <h2 className="title" onClick={() => setSearchChannelOpen(!isSearchChannelOpen)}>
+          Search Channel by ID
+        </h2>
+        {isSearchChannelOpen && (
+          <div>
+            <input
+              className="input-channel-id"
+              type="text"
+              placeholder="Channel ID"
+              onChange={(e) => setChannelId(e.target.value)}
+            />
+            <button
+              className="btn-search-channel"
+              onClick={handleFetchChannelById}
+            >
+              Search
+            </button>
+          </div>
+        )}
       </div>
 
       <div>
-        <h2>Channel List</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Channel ID</th>
-              <th>Channel Name</th>
-              <th>Channel Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            {channelList.map((channel) => (
-              <tr
-                key={channel.id}
-                className="channel-row"
-                onClick={() => handleOpenChat(channel.channel_name)}
-              >
-                <td>{channel.id}</td>
-                <td>{channel.channel_name}</td>
-                <td>{channel.channel_type}</td>
+        <h2 className="title" onClick={() => setChannelListOpen(!isChannelListOpen)}>
+          Channel List
+        </h2>
+        {isChannelListOpen && (
+          <table>
+            <thead>
+              <tr>
+                <th>Channel ID</th>
+                <th>Channel Name</th>
+                <th>Channel Type</th>
               </tr>
-            ))}
-            <tr></tr>
-            <tr>
-              <td></td>
-              <td>
-                <button
-                  className="btn-refresh-channel"
-                  onClick={handleFetchChannels}
+            </thead>
+            <tbody>
+              {channelList.map((channel) => (
+                <tr
+                  key={channel.id}
+                  className="channel-row"
+                  onClick={() => handleOpenChat(channel.channel_name)}
                 >
-                  Refresh
-                </button>
-              </td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+                  <td>{channel.id}</td>
+                  <td>{channel.channel_name}</td>
+                  <td>{channel.channel_type}</td>
+                </tr>
+              ))}
+              <tr></tr>
+              <tr>
+                <td></td>
+                <td>
+                  <button
+                    className="btn-refresh-channel"
+                    onClick={handleFetchChannels}
+                  >
+                    Refresh
+                  </button>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        )}
       </div>
 
       {selectedChannel && (
@@ -216,41 +244,59 @@ const Channel: React.FC = () => {
       )}
 
       <div>
-        <h2>Update Channel</h2>
-        <input
-          className="input-channel-id"
-          type="text"
-          placeholder="Channel ID"
-          onChange={(e) => setChannelId(e.target.value)}
-        />
-        <input
-          className="input-channel-name"
-          type="text"
-          placeholder="Channel Name"
-          onChange={(e) => setChannelName(e.target.value)}
-        />
-        <input
-          className="input-channel-type"
-          type="text"
-          placeholder="Channel Type"
-          onChange={(e) => setChannelType(e.target.value)}
-        />
-        <button className="btn-update-channel" onClick={handleUpdateChannel}>
-          Update
-        </button>
+        <h2 className="title" onClick={() => setUpdateChannelOpen(!isUpdateChannelOpen)}>
+          Update Channel
+        </h2>
+        {isUpdateChannelOpen && (
+          <div>
+            <input
+              className="input-channel-id"
+              type="text"
+              placeholder="Channel ID"
+              onChange={(e) => setChannelId(e.target.value)}
+            />
+            <input
+              className="input-channel-name"
+              type="text"
+              placeholder="Channel Name"
+              onChange={(e) => setChannelName(e.target.value)}
+            />
+            <input
+              className="input-channel-type"
+              type="text"
+              placeholder="Channel Type"
+              onChange={(e) => setChannelType(e.target.value)}
+            />
+            <button
+              className="btn-update-channel"
+              onClick={handleUpdateChannel}
+            >
+              Update
+            </button>
+          </div>
+        )}
       </div>
 
       <div>
-        <h2>Delete</h2>
-        <input
-          className="input-channel-id"
-          type="text"
-          placeholder="Channel ID"
-          onChange={(e) => setChannelId(e.target.value)}
-        />
-        <button className="btn-delete-channel" onClick={handleDeleteChannel}>
+        <h2 className="title" onClick={() => setDeleteChannelOpen(!isDeleteChannelOpen)}>
           Delete
-        </button>
+        </h2>
+        {isDeleteChannelOpen && (
+          <div>
+            <input
+              className="input-channel-id"
+              type="text"
+              placeholder="Channel ID"
+              onChange={(e) => setChannelId(e.target.value)}
+            />
+            <button
+              className="btn-delete-channel"
+              onClick={handleDeleteChannel}
+            >
+              Delete
+            </button>
+          </div>
+        )}
       </div>
 
       {error && <div style={{ color: "red" }}>{error}</div>}
