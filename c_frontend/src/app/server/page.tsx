@@ -20,7 +20,6 @@ const Server: React.FC<ServerProps> = () => {
   const [serverList, setServerList] = useState<ServerData[]>([]);
   const [selectedServer, setSelectedServer] = useState<ServerData | null>(null);
   const [isServerSelected, setIsServerSelected] = useState(false);
-  
 
   const fetchServerList = async () => {
     try {
@@ -41,7 +40,6 @@ const Server: React.FC<ServerProps> = () => {
   };
 
   useEffect(() => {
-   
     fetchServerList();
   }, []);
 
@@ -90,7 +88,7 @@ const Server: React.FC<ServerProps> = () => {
       }
 
       const jwtToken =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1ZGFyc2hhbkBnbWFpbC5jb20iLCJzdWIiOjIyLCJpYXQiOjE3MDM2Nzk2NjQsImV4cCI6MTcwNDI4NDQ2NH0.Ao3d6Z-peKJc8Qhr0UoQrF02AuTqa8ci--suodBWkOI"; 
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1ZGFyc2hhbkBnbWFpbC5jb20iLCJzdWIiOjIyLCJpYXQiOjE3MDM2Nzk2NjQsImV4cCI6MTcwNDI4NDQ2NH0.Ao3d6Z-peKJc8Qhr0UoQrF02AuTqa8ci--suodBWkOI";
 
       const response = await axios.post(
         `http://localhost:3000/server/${serverId}/invite-member`,
@@ -112,26 +110,28 @@ const Server: React.FC<ServerProps> = () => {
 
   const handleDelete = async (id: number) => {
     try {
-      const shouldDelete = window.confirm("Are you sure you want to delete this server?");
+      const shouldDelete = window.confirm(
+        "Are you sure you want to delete this server?"
+      );
       if (shouldDelete) {
-      const jwtToken =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1ZGFyc2hhbkBnbWFpbC5jb20iLCJzdWIiOjIyLCJpYXQiOjE3MDM2Nzk2NjQsImV4cCI6MTcwNDI4NDQ2NH0.Ao3d6Z-peKJc8Qhr0UoQrF02AuTqa8ci--suodBWkOI";
+        const jwtToken =
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1ZGFyc2hhbkBnbWFpbC5jb20iLCJzdWIiOjIyLCJpYXQiOjE3MDM2Nzk2NjQsImV4cCI6MTcwNDI4NDQ2NH0.Ao3d6Z-peKJc8Qhr0UoQrF02AuTqa8ci--suodBWkOI";
 
-      await axios.delete(`http://localhost:3000/server/${id}`, {
-        headers: {
-          Authorization: `Bearer ${jwtToken}`,
-        },
-      });
+        await axios.delete(`http://localhost:3000/server/${id}`, {
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
+        });
 
-      fetchServerList();
-    }
+        fetchServerList();
+      }
     } catch (error) {
       console.error("Error deleting server:", error as Error);
     }
   };
 
   const handleServerClick = (server: ServerData) => {
-    console.log('Server clicked:', server);
+    console.log("Server clicked:", server);
     setSelectedServer(server);
   };
 
@@ -168,53 +168,83 @@ const Server: React.FC<ServerProps> = () => {
           <li key={server.id}>{server.serverName}</li>
         ))}
       </ul> */}
-       {isServerSelected ? (
+      {isServerSelected ? (
         <div className="server-details-container">
           <h2>Server Details</h2>
           <p>ID: {selectedServer?.id}</p>
           <p>Name: {selectedServer?.serverName}</p>
           <p>Type: {selectedServer?.serverType}</p>
           <h2>Channels</h2>
-          <Channel/>
+          <Channel />
         </div>
-
       ) : (
-      <ul>
-        {serverList.map((server) => (
-          <li key={server.id} className={`server-item ${selectedServer && selectedServer.id === server.id ? 'selected' : ''}`}
-          onClick={() => {
-            handleServerClick(server);
-            setIsServerSelected(true);
-          }}>
-            {server.serverName}
+        // <ul>
+        //   {serverList.map((server) => (
+        //     <li key={server.id} className={`server-item ${selectedServer && selectedServer.id === server.id ? 'selected' : ''}`}
+        //     onClick={() => {
+        //       handleServerClick(server);
+        //       setIsServerSelected(true);
+        //     }}>
+        //       {server.serverName}
 
-            <button
-              className="btn-invitemember"
-              onClick={() => handleInviteMember(server.id)}
-            >
-              Invite Member
-            </button>
-            <button
-              className="btn-deleteserver"
-              onClick={() => handleDelete(server.id)}
-            >
-              Delete
-            </button>
-            
-          </li>
-        ))}
-      </ul>
+        //       <button
+        //         className="btn-invitemember"
+        //         onClick={() => handleInviteMember(server.id)}
+        //       >
+        //         Invite Member
+        //       </button>
+        //       <button
+        //         className="btn-deleteserver"
+        //         onClick={() => handleDelete(server.id)}
+        //       >
+        //         Delete
+        //       </button>
+
+        //     </li>
+        //   ))}
+        // </ul>
+        <table>
+          <tbody>
+            {serverList.map((server) => (
+              <tr
+                key={server.id}
+                className={`server-item ${
+                  selectedServer && selectedServer.id === server.id
+                    ? "selected"
+                    : ""
+                }`}
+                onClick={() => {
+                  handleServerClick(server);
+                  setIsServerSelected(true);
+                }}
+              >
+                <td className="server-name">{server.serverName}</td>
+                <td>
+                  <button
+                    className="btn-invitemember"
+                    onClick={() => handleInviteMember(server.id)}
+                  >
+                    Invite Member
+                  </button>
+                  <button
+                    className="btn-deleteserver"
+                    onClick={() => handleDelete(server.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
 
-
       {selectedServer !== null && (
-        
         <div className="server-members-container">
           <ServerMembers serverId={selectedServer.id} />
         </div>
       )}
     </div>
-
   );
 };
 

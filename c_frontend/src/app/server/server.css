@@ -92,3 +92,10 @@ div {
     background-color: #2980b9;
   }
   
+  .ul:hover {
+    background-color: #ddd;
+  }
+
+  .server-name:hover {
+    background-color: #ddd;
+  }
