@@ -36,7 +36,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ channelName, onClose }) => {
   }
 
   return (
-    <div className="chat-window">
+    <div className="channel-chat-window">
       <div className="header">
       <h2>{channelName}</h2>
       <button className="btn-close-chat-window" onClick={onClose}>X</button>
@@ -44,7 +44,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ channelName, onClose }) => {
       <div className="message-list">
         {messages.map((msg, index) => (
           <div key={index} className="message">
-            <p><b>(You)</b>{msg.text}</p>
+            <p><b>You - </b>{msg.text}</p>
             <span className="timestamp">{msg.timestamp.toLocaleString()}</span>
           </div>
         ))}
