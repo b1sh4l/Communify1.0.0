@@ -147,9 +147,9 @@ const Channel: React.FC = () => {
   return (
     <div>
       <div>
-        <h2 className="title" onClick={() => setCreateChannelOpen(!isCreateChannelOpen)}>
+        <h3 className="title" onClick={() => setCreateChannelOpen(!isCreateChannelOpen)}>
           Create Channel
-        </h2>
+        </h3>
         {isCreateChannelOpen && (
           <div>
             <input
@@ -175,9 +175,9 @@ const Channel: React.FC = () => {
       </div>
 
       <div>
-        <h2 className="title" onClick={() => setSearchChannelOpen(!isSearchChannelOpen)}>
+        <h3 className="title" onClick={() => setSearchChannelOpen(!isSearchChannelOpen)}>
           Search Channel by ID
-        </h2>
+        </h3>
         {isSearchChannelOpen && (
           <div>
             <input
@@ -197,9 +197,9 @@ const Channel: React.FC = () => {
       </div>
 
       <div>
-        <h2 className="title" onClick={() => setChannelListOpen(!isChannelListOpen)}>
+        <h3 className="title" onClick={() => setChannelListOpen(!isChannelListOpen)}>
           Channel List
-        </h2>
+        </h3>
         {isChannelListOpen && (
           <table>
             <thead>
@@ -244,9 +244,9 @@ const Channel: React.FC = () => {
       )}
 
       <div>
-        <h2 className="title" onClick={() => setUpdateChannelOpen(!isUpdateChannelOpen)}>
+        <h3 className="title" onClick={() => setUpdateChannelOpen(!isUpdateChannelOpen)}>
           Update Channel
-        </h2>
+        </h3>
         {isUpdateChannelOpen && (
           <div>
             <input
@@ -278,9 +278,9 @@ const Channel: React.FC = () => {
       </div>
 
       <div>
-        <h2 className="title" onClick={() => setDeleteChannelOpen(!isDeleteChannelOpen)}>
+        <h3 className="title" onClick={() => setDeleteChannelOpen(!isDeleteChannelOpen)}>
           Delete
-        </h2>
+        </h3>
         {isDeleteChannelOpen && (
           <div>
             <input
